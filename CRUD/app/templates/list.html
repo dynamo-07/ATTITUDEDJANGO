@@ -1,0 +1,94 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: gray;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: lightblue;
+        border-radius: 10px;
+        margin:105px;
+    }
+    table th, table td {
+        border: 1px solid #lightblue;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    table th {
+        background-color: lightblue;
+        color: black;
+    }
+    button{
+        border-radius: 10px;
+        height:30px;
+        width:90px;
+    }
+    .btn1{
+        background-color:lightgreen;
+    }
+    .btn1:hover{
+        background-color:45a049;
+    }
+    .btn2{
+        background-color:	FF0000;
+    }
+    .btn2:hover{
+        background-color:8B0000;
+    }
+    .btn3{
+        background-color:	rgb(249, 280, 227);
+    }
+    .btn3:hover{
+        background-color:yellow;
+    }
+    .btn4{
+        background-color:lightblue;
+        border :none;
+    }
+
+</style>
+
+<table>
+    <thead>
+        <tr><td></td><td></td><td></td><td><h1>List</h1></td><td></td><td><button class='btn4'><a href='{% url "form" %}'>Add Employee<a></button></td>
+        <tr>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+            <th>Department</th>
+            <th>Joining Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for val in data %}
+        <tr>
+            <td>{{ val.full_name }}</td>
+            <td>{{ val.email }}</td>
+            <td>{{ val.phone }}</td>
+            <td>{{ val.department }}</td>
+            <td>{{ val.joining_date }}</td>
+            <td>
+                {% if val.full_name %}
+                    <button  class='btn3'><a href="{% url 'viewme' val.full_name %}">VIEW</a></button>
+                    <button class='btn1'><a href="{% url 'edit_data' val.full_name %}">EDIT</a></button>
+                    <button  class='btn2'><a href="{% url 'delete_data' val.full_name %}">DELETE</a></button>
+                {% else %}
+                    <span>Not available</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

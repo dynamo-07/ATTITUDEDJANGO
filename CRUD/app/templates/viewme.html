@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color:rgb(249, 280, 227);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h4, h1, h3 {
+            color: #333;
+        }
+
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>{{data.joining_date}}</h4>
+        <h1>Dear {{data.full_name}},</h1>
+        <p>We are pleased to welcome you to  MyCompany as a member of the {{data.department}} team. Your journey with us begins on {{data.joining_date}}, and we are excited to have you on board.</p>
+
+        <h3>Here are your contact details for reference:</h3>
+        <p>Email: {{data.email}}</p>
+        <p>Phone: {{data.phone}}</p>
+        <p>Department: {{data.department}}</p>
+        <p>Please feel free to reach out if you have any questions or need assistance. We look forward to your contributions and growth at  MyCompany.</p>
+
+        <h3>Warm regards,</h3>
+        <p>
+            {{data.full_name}}<br>
+            {{data.department}}<br>
+            MyCompany
+        </p>
+    </div>
+</body>
+</html>
